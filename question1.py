@@ -2,7 +2,22 @@ from constants import *
 
 
 def role(user):
-    return ROLE[user]
+    with open("role.txt", "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            words = line.split(":")
+            username = words[0]
+            if username == user:
+                return words[1]
+
+def id(user):
+    with open("role.txt", "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            words = line.split(":")
+            username = words[0]
+            if username == user:
+                return words[2]
 
 
 def f_type(file):

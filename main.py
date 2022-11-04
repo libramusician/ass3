@@ -1,17 +1,22 @@
 #! /bin/python3.10
 from question1 import *
+from passwdVerify import verify
 
 # default value for testing purpose only. assumption
 TIME = 10
 APPROVED = True
 
 while True:
-    user_name = input("user name:")
-    passwd = input("password:")
-    # if not authenticated(user_name, passwd):
-    #     print("authentication failed, exit")
-    #     exit(1)
-    print("welcome")
+    print("Finvest Holdings")
+    print("Client Holdings and Information System")
+    print("----------------------------------------------------")
+    user_name = input("Enter username:")
+    passwd = input("Enter password:")
+    if not verify(user_name, passwd):
+        print("authentication failed, exit")
+        exit(1)
+    print("ACCESS GRANTED")
+    print("your role is " + role(user_name) + "your ID is " + id(user_name))
     files_viewable = []
     files_modifiable = []
     files_accessible = []
